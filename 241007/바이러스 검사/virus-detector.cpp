@@ -23,13 +23,13 @@ int main(){
         //손님은 1명인데 팀장이 다 검사해서 -일수도 있으니까
         customer[i] -= check[0];
         if(customer[i] < 0)
-            customer[0];
+            customer[i] = 0;
         ans += customer[i] / check[1];
         if((customer[i] % check[1]) != 0)
             ans += 1;
     }
 
-    cout << ans << '\n';
+    cout << ans + shop << '\n';
 
     return 0;
 }
