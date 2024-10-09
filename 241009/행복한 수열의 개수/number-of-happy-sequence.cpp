@@ -52,13 +52,13 @@ void happy_arr(){
             ans++;
 
     }
-    for(int col = 1; col <n; col++){
+    for(int col = 0; col<n; col++){
         int cnt = 0;
         int pre = 0;
-        for(int row =0; row<n; row++){
-            pre = arr[col][0];
+        for(int row =1; row<n; row++){
+            pre = arr[row][col];
             //이전값과 현재값이 같다면
-            if(pre == arr[col-1][row]){
+            if(pre == arr[row-1][col]){
                 cnt++;
             }
         }
