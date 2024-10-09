@@ -1,9 +1,6 @@
 #include <iostream>
 using namespace std;
 
-//격자 크기는 1 이상 100 이하
-//행복한 수열: 연속해서 m개 이상의 동일한 원소가 나오는 순간이 존재하는 수열
-//그냥 1부터 n배열의 행과 열을 각각 체크해서 행복한 수열이 존재하는지 확인하면 되는거 아닌가?
 void happy_arr();
 int m, n, ans, arr[101][101];
 
@@ -14,58 +11,64 @@ int main() {
 
     cin >> n >> m;
     
-    //수열을 입력받음
-    for(int i=0; i<n; i++){
-        for(int j=0; j<n; j++){
-            cin >>arr[i][j];
+    // 격자 값을 입력받음
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < n; j++) {
+            cin >> arr[i][j];
         }
     }
 
-    if(m == 1){
-        ans = 2*n;
-    }
-    else{
-        happy_arr();
+    // m이 1인 경우는 모든 수열이 '행복한 수열'이므로 바로 2 * n 출력
+    if(m == 1) {
+        ans = 2 * n;
+    } else {
+        happy_arr();  // 행복한 수열을 찾는 함수 호출
     }
 
-    cout << ans <<'\n';
+    // 결과 출력
+    cout << ans << '\n';
 
     return 0;
 }
 
-void happy_arr(){
-
-    //어떤 숫자든m개만 있으면 됨 (ex)m = 2 , 22, 11, 44, 55....)
-    //그럼 숫자를 하나하나 체크해서 for문 돌려서 같은 숫자면 세는걸로 하자
-    for(int row = 0; row<n; row++){ 
-        int cnt = 0;
-        int pre = 0;
-        for(int col=1; col<n; col++){
-            pre = arr[row][col]; //이전 값 저장
-            //이전값과 현재 값이 같다면
-            if(pre == arr[row][col-1]){
-                cnt++;
+void happy_arr() {
+    // 각 행에서 행복한 수열을 찾음
+    for(int row = 0; row < n; row++) {
+        int cnt = 1;  // 현재 연속된 숫자 개수를 1로 초기화
+        int pre = arr[row][0];  // 첫 번째 값을 이전 값으로 설정
+        
+        for(int col = 1; col < n; col++) {
+            if(pre == arr[row][col]) {  // 이전 값과 현재 값이 같으면
+                cnt++;  // 연속된 숫자 개수 증가
+            } else {  
+                cnt = 1;  // 연속이 끊기면 다시 1로 초기화
+                pre = arr[row][col];  // 이전 값을 현재 값으로 갱신
             }
-            else
-                cnt = 0;
+            
+            if(cnt >= m) {  // 연속된 숫자가 m개 이상이면 행복한 수열로 인정
+                ans++;  // 행복한 수열 개수 증가
+                break;  // 이 행에서는 더 이상 확인할 필요 없으므로 중단
+            }
         }
-        if(cnt >= (m-1))
-            ans++;
-
     }
-    for(int col = 0; col<n; col++){
-        int cnt = 0;
-        int pre = 0;
-        for(int row =1; row<n; row++){
-            pre = arr[row][col];
-            //이전값과 현재값이 같다면
-            if(pre == arr[row-1][col]){
-                cnt++;
+
+    // 각 열에서 행복한 수열을 찾음
+    for(int col = 0; col < n; col++) {
+        int cnt = 1;  // 현재 연속된 숫자 개수를 1로 초기화
+        int pre = arr[0][col];  // 첫 번째 값을 이전 값으로 설정
+        
+        for(int row = 1; row < n; row++) {
+            if(pre == arr[row][col]) {  // 이전 값과 현재 값이 같으면
+                cnt++;  // 연속된 숫자 개수 증가
+            } else {
+                cnt = 1;  // 연속이 끊기면 다시 1로 초기화
+                pre = arr[row][col];  // 이전 값을 현재 값으로 갱신
             }
-            else
-                cnt = 0;
+            
+            if(cnt >= m) {  // 연속된 숫자가 m개 이상이면 행복한 수열로 인정
+                ans++;  // 행복한 수열 개수 증가
+                break;  // 이 열에서는 더 이상 확인할 필요 없으므로 중단
+            }
         }
-        if(cnt >= (m-1))
-            ans++;
     }
 }
