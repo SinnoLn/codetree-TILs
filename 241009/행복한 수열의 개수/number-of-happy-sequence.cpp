@@ -22,7 +22,12 @@ int main() {
         }
     }
 
-    happy_arr();
+    if(m == 1){
+        ans = 2*n;
+    }
+    else{
+        happy_arr();
+    }
 
     cout << ans <<'\n';
 
@@ -47,13 +52,13 @@ void happy_arr(){
             ans++;
 
     }
-    for(int col = 0; col <n; col++){
+    for(int col = 1; col <n; col++){
         int cnt = 0;
         int pre = 0;
-        for(int row =1; row<n; row++){
-            pre = arr[col][row];
+        for(int row =0; row<n; row++){
+            pre = arr[col][0];
             //이전값과 현재값이 같다면
-            if(pre == arr[col][row-1]){
+            if(pre == arr[col-1][row]){
                 cnt++;
             }
         }
