@@ -47,6 +47,8 @@ void happy_arr(){
             if(pre == arr[row][col-1]){
                 cnt++;
             }
+            else 
+                cnt = 0;
         }
         if(cnt >= (m-1))
             ans++;
@@ -61,6 +63,8 @@ void happy_arr(){
             if(pre == arr[row-1][col]){
                 cnt++;
             }
+            else 
+                cnt = 0;
         }
         if(cnt >= (m-1))
             ans++;
