@@ -26,22 +26,26 @@ int main() {
     }
 
     //세워진 블럭
-    for(int col=0; col<n; col++){
-        for(int row=0; row<m; row++){
-            if((row+2)>=m) continue;
+    for(int col=0; col<m; col++){
+        for(int row=0; row<n; row++){
+            if((row+2)>=n) continue;
             int num_of_gold = all_cost1(row, row+2, col, col);
             maxCost = max(maxCost, num_of_gold);
         }
     }
 
+    // cout << "======================================" <<'\n';
+
     //누운 블럭
     for(int row=0; row<n; row++){
         for(int col=0; col<m; col++){
-            if((col+2)>=n) continue;
+            if((col+2)>=m) continue;
             int num_of_gold = all_cost2(row, row, col, col+2);
             maxCost = max(maxCost, num_of_gold);
         }
     }
+
+        // cout << "======================================" <<'\n';
 
     //니은 블럭
     for(int col=0; col<m; col++){
@@ -53,6 +57,8 @@ int main() {
         }
     }
 
+        // cout << "======================================" <<'\n';
+
     //니은 반대 블럭
     for(int col=0; col<m; col++){
         for(int row=0; row<n; row++){
@@ -62,6 +68,8 @@ int main() {
             maxCost = max(maxCost, num_of_gold);
         }
     }
+
+        // cout << "======================================" <<'\n';
 
     //기역 블럭
     for(int col=0; col<m; col++){
@@ -73,6 +81,8 @@ int main() {
         }
     }
 
+        // cout << "======================================" <<'\n';
+
     //기역 반대 블럭
     for(int col=0; col<m; col++){
         for(int row=0; row<n; row++){
@@ -82,6 +92,8 @@ int main() {
             maxCost = max(maxCost, num_of_gold);
         }
     }
+
+        // cout << "======================================" <<'\n';
 
     //최종 값 출력
     cout << maxCost << '\n';
@@ -94,6 +106,7 @@ int all_cost1(int row_s, int row_e, int col_s, int col_e){
     int cost = 0;
     for(int j=row_s; j<=row_e; j++){
         cost+=arr[j][col_s];
+        // cout << j << " : " << col_s << " : " <<arr[j][col_s]<<'\n';
     }
     return cost;
 }
@@ -103,6 +116,7 @@ int all_cost2(int row_s, int row_e, int col_s, int col_e){
     int cost = 0;
     for(int j=col_s; j<=col_e; j++){
         cost+=arr[row_s][j];
+        // cout << row_s << " : " << j << " : " <<arr[row_s][j]<<'\n';
     }
     return cost;
 }
@@ -114,6 +128,7 @@ int all_cost3(int row_s, int row_e, int col_s, int col_e){
         for(int j=col_s; j<=col_e; j++){
             if(i == row_s && j == col_e) continue;
             cost+=arr[i][j];
+            // cout << i << " : " << j << " : " <<arr[i][j]<<'\n';
         }
     }
     return cost;
@@ -126,6 +141,7 @@ int all_cost4(int row_s, int row_e, int col_s, int col_e){
         for(int j=col_s; j<=col_e; j++){
             if(i == row_s && j == col_s) continue;
             cost+=arr[i][j];
+            // cout << i << " : " << j << " : " <<arr[i][j]<<'\n';
         }
     }
     return cost;
@@ -137,6 +153,7 @@ int all_cost5(int row_s, int row_e, int col_s, int col_e){
     for(int i=row_s; i<=row_e; i++){
         for(int j=col_s; j<=col_e; j++){
             if(i == row_e && j == col_s) continue;
+            // cout << i << " : " << j << " : " <<arr[i][j]<<'\n';
             cost+=arr[i][j];
         }
     }
@@ -149,6 +166,7 @@ int all_cost6(int row_s, int row_e, int col_s, int col_e){
     for(int i=row_s; i<=row_e; i++){
         for(int j=col_s; j<=col_e; j++){
             if(i == row_e && j == col_e) continue;
+            // cout << i << " : " << j << " : " <<arr[i][j]<<'\n';
             cost+=arr[i][j];
         }
     }
