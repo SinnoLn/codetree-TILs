@@ -4,7 +4,7 @@ int a, b;
 
 int main() {
     cin >> a >> b;
-    for(int i=0; i<6; i++){
+    for(int i=0; i<b; i++){
         a+=b;
         cout << a << '\n'; 
     }
