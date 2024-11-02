@@ -54,12 +54,12 @@ void apply_gravity() {
 
         // 아래서부터 위로 올라가며 비어 있지 않은 값들을 temp에 저장
         for (int y = n - 1; y >= 0; y--) {
-            if (arr[y][x] != 0) {
+            if (arr[y][x] != 0) { // 비어있지 않다면 저장
                 temp[end_of_temp++][x] = arr[y][x];
             }
         }
 
-        for (int y = 0; y < n; y++) {
+        for (int y = 0; y < n; y++) { //그리고 다시 복사
                 arr[n - 1 - y][x] = temp[y][x];
         }
     }
