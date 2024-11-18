@@ -16,7 +16,7 @@ int main() {
         }
         else if(op == "get"){
             cin >> num;
-            cout << arr[num] <<'\n';
+            cout << arr[num-1] <<'\n';
         }
         else if(op == "size"){
             cout << arr.size() <<'\n';
