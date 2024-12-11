@@ -25,6 +25,9 @@ int main() {
             cout << st.top() <<'\n';
             st.pop();
         }
+        else if(s == "top"){
+            cout << st.top() <<'\n';
+        }
     }
     return 0;
 }
