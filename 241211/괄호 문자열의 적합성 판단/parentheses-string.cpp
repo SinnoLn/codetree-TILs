@@ -3,30 +3,32 @@
 using namespace std;
 
 stack<int> stk;
-string s;
+string s, ans;
 int main() {
     cin >> s;
     for(char c: s){
         if(c == '('){
             if(!stk.empty()){
-                cout << "No" << '\n';
+                ans = "No";
                 break;
             }
             stk.push(1);
         } 
         else if(c == ')'){
             if(stk.empty()){
-                cout << "No" <<'\n'; 
+                ans = "No"; 
                 break;
             }
             stk.pop();
         }
 
         if(!stk.empty()){
-                cout << "No" << '\n';
+                ans = "No";
                 break;
             }
-        cout << "Yes" <<'\n';
+        else ans = "Yes";
     }
+    cout << ans <<'\n';
+
     return 0;
 }
