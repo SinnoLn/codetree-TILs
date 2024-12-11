@@ -8,10 +8,6 @@ int main() {
     cin >> s;
     for(char c: s){
         if(c == '('){
-            if(!stk.empty()){
-                ans = "No";
-                break;
-            }
             stk.push(1);
         } 
         else if(c == ')'){
@@ -21,13 +17,11 @@ int main() {
             }
             stk.pop();
         }
-
-        if(!stk.empty()){
-                ans = "No";
-                break;
-            }
-        else ans = "Yes";
     }
+
+    if(!stk.empty()) ans = "No";
+    else ans = "Yes";
+    
     cout << ans <<'\n';
 
     return 0;
