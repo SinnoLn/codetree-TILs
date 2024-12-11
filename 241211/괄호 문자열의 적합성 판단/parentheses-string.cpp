@@ -12,17 +12,18 @@ int main() {
         } 
         else if(c == ')'){
             if(stk.empty()){
-                ans = "No"; 
-                break;
+                cout << "No" <<'\n'; 
+                return 0;
             }
             stk.pop();
         }
     }
 
-    if(!stk.empty()) ans = "No";
-    else ans = "Yes";
-    
-    cout << ans <<'\n';
+    if(!stk.empty()){
+         cout << "No" <<'\n';
+         return 0;
+    }
+    else cout << "Yes" <<'\n';
 
     return 0;
 }
