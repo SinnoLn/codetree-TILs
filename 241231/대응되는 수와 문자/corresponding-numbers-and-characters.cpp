@@ -20,7 +20,7 @@ cin >> n >> m;
     for(int i=0; i<m; i++){
         cin >> s;
         if(isdigit(s[0])){
-            int num = s[0]-'0';
+            int num = stoi(s);
             cout << int_to_char[num] << '\n';
         } 
         else cout << char_to_int[s] <<'\n';
