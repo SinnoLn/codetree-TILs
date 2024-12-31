@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <string>
 #include <cmath>
+#include <cctype>
 using namespace std;
 
 unordered_map<string, int> char_to_int;
@@ -18,7 +19,10 @@ cin >> n >> m;
 
     for(int i=0; i<m; i++){
         cin >> s;
-        if(0<=stoi(s) && 9>=stoi(s)) cout << int_to_char[stoi(s)] << '\n';
+        if(isdigit(s[0])){
+            int num = s[0]-'0';
+            cout << int_to_char[num] << '\n';
+        } 
         else cout << char_to_int[s] <<'\n';
     }
 
