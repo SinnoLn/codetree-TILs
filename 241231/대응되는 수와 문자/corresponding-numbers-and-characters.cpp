@@ -1,23 +1,25 @@
 #include <iostream>
 #include <unordered_map>
+#include <string>
+#include <cmath>
 using namespace std;
 
-unordered_map<char, int> char_to_int;
-unordered_map<int, char> int_to_char;
+unordered_map<string, int> char_to_int;
+unordered_map<int, string> int_to_char;
 int n,m;
-char c;
+string s;
 int main() {
 cin >> n >> m;
     for(int i=0; i<n; i++){
-        cin >> c;
-        char_to_int[c] = i+1;
-        int_to_char[i+1] = c;
+        cin >> s;
+        char_to_int[s] = i+1;
+        int_to_char[i+1] = s;
     }
 
     for(int i=0; i<m; i++){
-        cin >> c;
-        if(0<=(c-'0') && 9>=(c-'0')) cout << int_to_char[c-'0'] << '\n';
-        else cout << char_to_int[c] <<'\n';
+        cin >> s;
+        if(0<=stoi(s) && 9>=stoi(s)) cout << int_to_char[stoi(s)] << '\n';
+        else cout << char_to_int[s] <<'\n';
     }
 
     return 0;
