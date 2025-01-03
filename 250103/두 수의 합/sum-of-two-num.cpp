@@ -10,11 +10,11 @@ int main() {
     cin >> n >> k;
     for(int i=0; i<n; i++){
         cin >> num;
-        hashmap[num]++;
-        
+
         if(hashmap.find(k-num) != hashmap.end()){
-            answer+=hashmap[num];
+            answer+=hashmap[k-num];
         }
+        hashmap[num]++;
     }
     cout << answer <<'\n';
     return 0;
