@@ -11,8 +11,10 @@ public class Main {
         double bn = Math.round(b*1000.0)/1000.0;
         double cn = Math.round(c*1000.0)/1000.0;
 
-        System.out.println(an);
-        System.out.println(bn);
-        System.out.println("578.000");
+        System.out.printf("%.3f",an);
+        System.out.println();
+        System.out.printf("%.3f",bn);
+        System.out.println();
+        System.out.printf("%.3f",cn);
     }
 }
