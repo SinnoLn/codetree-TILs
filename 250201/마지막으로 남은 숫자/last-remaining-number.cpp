@@ -17,8 +17,13 @@ int main() {
         int b = pq.top();
         pq.pop();
 
-        pq.push(abs(a-b));
+        if(a==b) continue;
+        else{
+            pq.push(abs(a-b));
+        }
     }
-    cout << pq.top() << '\n';
+    if(pq.size()==1) cout << pq.top() << '\n';
+    else if(pq.empty()) cout << -1 << '\n';
+        
     return 0;
 }
