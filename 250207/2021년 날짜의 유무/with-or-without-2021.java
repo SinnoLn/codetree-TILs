@@ -13,7 +13,7 @@ public class Main {
 
     public static boolean isDate(int month, int day){
         if(month>12) return false;
-        if(month == 2 && day < 29) return true;
+        if(month == 2 && day < 30) return true;
         if(month == 1 || month == 3||month == 5||month == 7||month == 8||month == 10||month == 12){
             if(day<32) return true;
         }
