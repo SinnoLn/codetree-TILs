@@ -19,9 +19,13 @@ public class Main {
     }
 
     public static boolean isSubsequence(int arr1[], int arr2[]){
+
+        if(arr1.length==1 && arr2.length==1){
+            if(arr1[0]==arr2[0]) return true;
+        }
         for(int i=0; i<arr1.length-arr2.length; i++){
             boolean check = true;
-            for(int j=i; j<arr2.length; j++){
+            for(int j=0; j<arr2.length; j++){
                 if(arr1[i+j] != arr2[j]) {
                     check = false;
                     break;
