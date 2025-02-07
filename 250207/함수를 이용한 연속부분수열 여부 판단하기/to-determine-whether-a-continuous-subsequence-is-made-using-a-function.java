@@ -5,13 +5,30 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
         int b = sc.nextInt();
-        String an = "";
-        String bn = "";
-        for(int i=0; i<a; i++) an+=sc.next();
-        for(int i=0; i<b; i++) bn+=sc.next();
+        
+        int[] arr1 = new int[a];
+        int[] arr2 = new int[b];
 
-        if(an.contains(bn)) System.out.println("Yes");
+        for(int i=0; i<a; i++) arr1[i] = sc.nextInt();
+        for(int i=0; i<b; i++) arr2[i] = sc.nextInt();
+
+        if(isSubsequence(arr1,arr2)) System.out.println("Yes");
         else System.out.println("No");
+
         sc.close();
+    }
+
+    public static boolean isSubsequence(int arr1[], int arr2[]){
+        for(int i=0; i<arr1.length-arr2.length; i++){
+            boolean check = true;
+            for(int j=i; j<arr2.length; j++){
+                if(arr1[i+j] != arr2[j]) {
+                    check = false;
+                    break;
+                }
+            }
+            if(check == true) return true;
+        }
+        return false;
     }
 }
