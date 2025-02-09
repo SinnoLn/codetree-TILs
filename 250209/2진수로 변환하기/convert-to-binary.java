@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] digit = new int[20];
+        int cnt = 0;
+        while(true){
+            if(n<2){
+                digit[cnt++] = n;
+                break;
+            }
+            digit[cnt++] = n%2;
+            n/=2;
+        }
+
+        for(int i=cnt-1; i>-1; i--) System.out.print(digit[i]);
+        sc.close();
+    }
+}
