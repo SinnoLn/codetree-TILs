@@ -30,8 +30,8 @@ public class Main {
         }
         
         int cnt=0;
-        int maxH = 0;
-        int maxW = 0;
+        int maxH = -1;
+        int maxW = -1;
         int minH = 2000;
         int minW = 2000;
 
@@ -45,7 +45,9 @@ public class Main {
                 }
             }
         }
-        System.out.println((maxH-minH+1)*(maxW-minW+1));
+        int area = (maxH-minH+1)*(maxW-minW+1);
+        if(area<400000) System.out.println(area);
+        else System.out.println(0);
         sc.close();
     }
 }
