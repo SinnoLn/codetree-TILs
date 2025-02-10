@@ -35,9 +35,11 @@ public class Main {
         int minH = 2000;
         int minW = 2000;
 
+        boolean found = false;
         for(int i=0; i<2000; i++){
             for(int j=0; j<2000; j++){
                 if(rec[i][j]==1){
+                    found = true;
                     if(maxH<i) maxH = i;
                     if(maxW<j) maxW = j;
                     if(minH>i) minH = i;
@@ -45,9 +47,12 @@ public class Main {
                 }
             }
         }
-        int area = (maxH-minH+1)*(maxW-minW+1);
-        if(area<400000) System.out.println(area);
-        else System.out.println(0);
+
+        int area = 0;
+        if(found) area = (maxH-minH+1)*(maxW-minW+1);
+        else area = 0;
+        
+        System.out.println(area);
         sc.close();
     }
 }
