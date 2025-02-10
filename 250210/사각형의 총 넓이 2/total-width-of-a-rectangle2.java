@@ -5,6 +5,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int[][] rec = new int[200][200];
         int n = sc.nextInt();
+        int offset = 100;
 
         for(int i=0; i<n; i++){
             int x1 = sc.nextInt();
@@ -14,7 +15,7 @@ public class Main {
 
             for(int j=x1; j<x2; j++){
                 for(int k=y1; k<y2; k++){
-                    rec[j][k]++;
+                    rec[j+offset][k+offset]++;
                 }
             }
         }
