@@ -3,25 +3,37 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[] arr = new int[20];
+        int[] arr = new int[2000];
 
         int n = sc.nextInt();
+        int point = 1000;
 
         for(int i=0; i<n; i++){
             int num = sc.nextInt();
             char dir = sc.next().charAt(0);
-
+            
             if(dir == 'R'){
-                for(int j=0; j<num-1; j++) arr[j+10]++;
+                while(num>0){
+                    arr[point]++;
+                    point++;
+                    num--;
+                }
             }
             else{
-                for(int j=0; j<num-1; j++) arr[j]++;
+                while(num>0){
+                    arr[point]++;
+                    point--;
+                    num--;
+                }
             }
         }
 
         int cnt = 0;
         for(int i=0; i<arr.length; i++){
-            if(arr[i]>1) cnt++;
+            if(arr[i]>1){
+               // System.out.println("arr["+i+"] : " + arr[i]);
+                cnt++;
+            } 
         }
         System.out.println(cnt);
         sc.close();
