@@ -11,8 +11,8 @@ public class Main {
 
         for(int i=0; i<n; i++){
             arr[i] = sc.nextInt();
-            if(i==0 || arr[i]<=k ){
-                if(cnt>maxVal) cnt = maxVal;
+            if(i==0 || arr[i-1]<=k || arr[i]<=k){
+                if(cnt>maxVal) maxVal = cnt;
                 cnt = 1;
             }
             else cnt++;
