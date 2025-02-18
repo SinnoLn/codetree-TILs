@@ -7,8 +7,8 @@ public class Main {
        int n = sc.nextInt();
        int m = sc.nextInt();
 
-       int dis1[] = new int[1000001];
-       int dis2[] = new int[1000001];
+       int dis1[] = new int[1000000];
+       int dis2[] = new int[1000000];
 
        int pos = 0;
        int time = 0;
@@ -53,7 +53,7 @@ public class Main {
        }
 
        boolean check = false;
-       for(int i=0; i<time; i++){
+       for(int i=0; i<time+1; i++){
         if(dis1[i]==dis2[i]){
             System.out.println(i);
             check = true;
