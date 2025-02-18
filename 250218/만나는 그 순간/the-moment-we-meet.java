@@ -23,8 +23,8 @@ public class Main {
                     pos++; 
                 }
                 else if(dir == 'L'){
-                    pos--;
                     dis1[time] = pos;
+                    pos--;
                     time++; 
                 }
                 num--;
@@ -44,8 +44,8 @@ public class Main {
                     pos++; 
                 }
                 else if(dir == 'L'){
-                    pos--;
-                    dis2[time] = pos; 
+                    dis2[time] = pos;
+                    pos--; 
                     time++;
                 }
                 num--;
@@ -53,13 +53,14 @@ public class Main {
        }
 
        boolean check = false;
-       for(int i=0; i<time+1; i++){
+       for(int i=1; i<time; i++){
         if(dis1[i]==dis2[i]){
             System.out.println(i);
             check = true;
             break;
         }
        }
+
        if(!check){
             System.out.println(-1);
         }
