@@ -65,7 +65,7 @@ public class Main {
         }
 
         int cnt = 0;
-        for(int i=2; i<maxTime; i++){
+        for(int i=2; i<maxTime+1; i++){
             if(a[i]==b[i] && a[i-1]!=b[i-1]) cnt++; 
         }
         System.out.println(cnt);
