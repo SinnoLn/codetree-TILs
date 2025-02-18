@@ -7,8 +7,8 @@ public class Main {
         int n = sc.nextInt();
         int m = sc.nextInt();
 
-        int a[] = new int[1000000];
-        int b[] = new int[1000000];
+        int a[] = new int[1000009];
+        int b[] = new int[1000009];
 
         int timeA = 0;
         int posA = 0;
