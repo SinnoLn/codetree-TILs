@@ -20,7 +20,7 @@ public class Main {
                 y = y + dy[dir];
             }
             else if(op == 'R') dir = (dir+1)%4;
-            else if(op == 'L') dir = (dir-4+1)%4;
+            else if(op == 'L') dir = (dir+4-1)%4;
             time++;
             
             if(x == 0 && y == 0){
