@@ -25,7 +25,7 @@ public class Main {
             x = nx;
             y = ny;
             a++;
-            if(a == 'Z') a = 'A';
+            if(a > 'Z') a = 'A';
             cArr[y][x] = a;
         }
 
