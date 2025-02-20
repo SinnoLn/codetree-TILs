@@ -10,42 +10,45 @@ public class Main {
                 arr[i][j] = sc.nextInt();
             }
         }
-        System.out.println(checkWinner());
-        System.out.println(num[0] + " " + num[1]);
+
+        int winner = checkWinner();
+        if(winner != 0){
+            System.out.println(winner);
+            System.out.println(num[0] + " " + num[1]);
+        } 
+        else System.out.println(0);
         sc.close();
     }
 
     public static int checkWinner(){
-        //가로로 우승
-        for(int i=0; i<19; i++){
-            for(int j=0; j<19-4; j++){
-                if(arr[i][j] != 0 && arr[i][j] == arr[i][j+1] && arr[i][j+1] == arr[i][j+2] && arr[i][j+2] == arr[i][j+3] && arr[i][j+3]== arr[i][j+4]) {
-                    num[0] = i+1;
-                    num[1] = j+1+2;
-                    return arr[i][j];
-                }
-            }
-        }
+        int dx[] = {1,0,1,1};
+        int dy[] = {0,1,1,-1};
 
-         //세로로 우승
         for(int i=0; i<19; i++){
-            for(int j=0; j<19-4; j++){
-                if(arr[j][i] != 0 && arr[j][i] == arr[j+1][i] && arr[j+1][i] == arr[j+2][i] && arr[j+2][i] == arr[j+3][i] && arr[j+3][i]== arr[j+4][i]){
-                    num[0] = j+1+2;
-                    num[1] = i+1;
-                    return arr[j][i];
-                }
-            }
-        }
+            for(int j=0; j<19; j++){
+                if(arr[i][j]==0) continue;
+                int stone = arr[i][j];
 
-         //대각선 우승
-        for(int i=0; i<19-4; i++){
-            for(int j=0; j<19-4; j++){
-                if(arr[j][i] != 0 && arr[j][i] == arr[j+1][i+1] && arr[j+1][i+1] == arr[j+2][i+2] && arr[j+2][i+2]== arr[j+3][i+3] && arr[j+3][i+3] == arr[j+4][i+4]){
-                    num[0] = i+1+2;
-                    num[1] = j+1+2;
-                    return arr[j][i];
-                } 
+                for(int d=0; d<4; d++){
+                    int ny = i;
+                    int nx = j;
+                    int count = 1;
+
+                    while(true){
+                        ny+=dy[d];
+                        nx+=dx[d];
+
+                        if(ny<0 || nx<0 || ny>=19 || nx>=19) break;
+                        if(arr[ny][nx] != stone) break;
+                        count++;
+                    }
+
+                    if(count == 5){
+                        num[0] = i+dy[d]*2+1;
+                        num[1] = j+dx[d]*2+1;
+                        return stone;
+                    }
+                }
             }
         }
         return 0;
