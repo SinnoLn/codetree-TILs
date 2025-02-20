@@ -28,12 +28,12 @@ public class Main {
         }
 
          //세로로 우승
-        for(int i=0; i<19-4; i++){
-            for(int j=0; j<19; j++){
+        for(int i=0; i<19; i++){
+            for(int j=0; j<19-4; j++){
                 if(arr[j][i] != 0 && arr[j][i] == arr[j+1][i] && arr[j+1][i] == arr[j+2][i] && arr[j+2][i] == arr[j+3][i] && arr[j+3][i]== arr[j+4][i]){
-                    num[0] = i+1+2;
-                    num[1] = j+1;
-                    return arr[i][j];
+                    num[0] = j+1+2;
+                    num[1] = i+1;
+                    return arr[j][i];
                 }
             }
         }
@@ -44,7 +44,7 @@ public class Main {
                 if(arr[j][i] != 0 && arr[j][i] == arr[j+1][i+1] && arr[j+1][i+1] == arr[j+2][i+2] && arr[j+2][i+2]== arr[j+3][i+3] && arr[j+3][i+3] == arr[j+4][i+4]){
                     num[0] = i+1+2;
                     num[1] = j+1+2;
-                    return arr[i][j];
+                    return arr[j][i];
                 } 
             }
         }
