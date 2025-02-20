@@ -14,7 +14,7 @@ public class Main {
         for(int i=0; i<n; i++){
             int sum = 0;
             for(int j=0; j<n; j++){
-                int index = (i+j)%5;
+                int index = (i+j)%n;
                 sum+=room[index]*j;
             }
             ans = Math.min(sum, ans);
