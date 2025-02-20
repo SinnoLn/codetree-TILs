@@ -17,11 +17,13 @@ public class Main {
         char start = wb[0][0];
         char end = wb[n-1][m-1];
 
-        for(int i=1; i<n-2; i++){
-            for(int j=1; j<m-2; j++){
-                for(int k=i+1; k<n-1; k++){
-                    for(int l=j+1; l<m-1; l++){
-                        if(wb[i][j] == end && wb[k][l] == start) ans++;
+        if(start != end){
+            for(int i=1; i<n-2; i++){
+                for(int j=1; j<m-2; j++){
+                    for(int k=i+1; k<n-1; k++){
+                        for(int l=j+1; l<m-1; l++){
+                            if(wb[i][j] == end && wb[k][l] == start) ans++;
+                        }
                     }
                 }
             }
