@@ -12,26 +12,29 @@ public class Main {
         for(int i=0; i<n-2; i++){
             for(int j=i+1; j<n-1; j++){
                 for(int k=j+1; k<n; k++){
-                    int len = Math.min(Integer.toString(arr[i]).length(),Math.min(Integer.toString(arr[j]).length(),Integer.toString(arr[k]).length()));
-                    int mlen = Math.max(Integer.toString(arr[i]).length(),Math.max(Integer.toString(arr[j]).length(),Integer.toString(arr[k]).length()));
-                    String s1 = new StringBuilder(Integer.toString(arr[i])).reverse().toString();
-                    String s2 = new StringBuilder(Integer.toString(arr[j])).reverse().toString();
-                    String s3 = new StringBuilder(Integer.toString(arr[k])).reverse().toString();
-                    int sum = arr[i] + arr[j] + arr[k];
-                    boolean check = true;
-                    if(Integer.toString(sum).length()>mlen) check = false;
-                    for(int t=0; t<len; t++){
-                        if(s1.charAt(t)-'0'+s2.charAt(t)-'0'+s3.charAt(t)-'0' > 9){
-                            check = false;
-                            break;
-                        } 
-                    }
-                    if(check) maxVal = Math.max(maxVal,sum);
+                    if(checkCarry(arr[i], arr[j], arr[k])) maxVal = Math.max(maxVal, arr[i] + arr[j] + arr[k]);
                 }
             }
         }
         if(maxVal==0)maxVal = -1;
         System.out.println(maxVal);
         sc.close();
+    }
+
+    public static boolean checkCarry(int a, int b, int c){
+        String sa = Integer.toString(a);
+        String sb = Integer.toString(b);
+        String sc = Integer.toString(c);
+
+        int maxLen = Math.max(sa.length(), Math.max(sb.length(),sc.length()));
+        while(sa.length()<maxLen) sa = "0" + sa;
+        while(sb.length()<maxLen) sb = "0" + sb;
+        while(sc.length()<maxLen) sc = "0" + sc;
+
+        for(int t=0; t<maxLen; t++){
+            int tmp = sa.charAt(t)-'0' + sb.charAt(t)-'0' + sc.charAt(t)-'0';
+            if(tmp>9) return false;
+        }
+        return true;
     }
 }
