@@ -8,29 +8,21 @@ public class Main {
 
         int[] arr1 = new int[n];
         int[] arr2 = new int[m];
-        int[] num = new int[101];
+        int[] tmp = new int[m];
 
         for(int i=0; i<n; i++)arr1[i] = sc.nextInt();
-        for(int i=0; i<m; i++){
-            arr2[i] = sc.nextInt();
-            num[arr2[i]]++;
-        }
+        for(int i=0; i<m; i++)arr2[i] = sc.nextInt();
+        Arrays.sort(arr2);
 
         int ans = 0;
         for(int i=0; i<n-m+1; i++){
-            int[] tmp = new int[101];
-            for(int j=i; j<i+m; j++){
-                tmp[arr1[j]]++;
+            for(int j=0; j<m; j++){
+                tmp[j] = arr1[i+j];
             }
-            if(check(num,tmp)) ans++; 
+            Arrays.sort(tmp);
+            if(Arrays.equals(tmp,arr2)) ans++;
         }
         System.out.println(ans);
         sc.close();
-    }
-    public static boolean check(int[] num, int[] tmp){
-        for(int i=1; i<101; i++){
-            if(num[i] != tmp[i]) return false;
-        }
-        return true;
     }
 }
