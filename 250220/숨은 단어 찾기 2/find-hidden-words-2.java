@@ -32,7 +32,7 @@ public class Main {
                             if(cArr[ny][nx] != 'E') break;
                             cnt++;
                         }
-                        if(cnt == 2) ans++;
+                        if(cnt > 1) ans++;
                     }
                 }
             }
