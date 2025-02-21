@@ -15,7 +15,6 @@ public class Main {
             for(int j=0; j<t; j++){
                 sum += Math.abs(h-arr[j+i]);
             }
-            System.out.println();
             ans = Math.min(ans, sum);
         }
         System.out.println(ans);
