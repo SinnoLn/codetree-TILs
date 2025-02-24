@@ -26,7 +26,6 @@ public class Main {
                 max_w = Math.max(max_w, arr[j][1]);
                 min_w = Math.min(min_w, arr[j][1]);
             }
-            if(min_h == max_h || min_w == max_w) continue;
             ans = Math.min(ans, (max_h-min_h)*(max_w-min_w));
         }
         System.out.println(ans);
