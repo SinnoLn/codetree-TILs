@@ -24,7 +24,8 @@ public class Main {
             record[i] = new Record(s, c);
         }
 
-        Arrays.sort(record, (a,b) -> Integer.compare(a.student/2 + b.charge, b.student/2 + b.charge));
+        Arrays.sort(record, (a,b) -> Integer.compare((a.student)/2 + a.charge, (b.student)/2 + b.charge));
+
         int ans = 0;
         for(int i=0; i<n; i++) {
             int tmp = 0;
