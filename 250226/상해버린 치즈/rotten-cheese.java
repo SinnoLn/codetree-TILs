@@ -48,7 +48,6 @@ public class Main {
                 for(int j=0; j<d; j++){  //총 먹은 사람
                     if((record[j].cheese == (i+1)) && (record[j].people == sickPerson)){ // 아픈사람이 먹었나 확인
                         if(record[j].time < sickTime) count++;
-                        else break;
                     }
                 }
             }
