@@ -46,20 +46,25 @@ public class Main {
                 int sickTime = sickPeople[k][1]; // 아픈 시간
 
                 for(int j=0; j<d; j++){  //총 먹은 사람
-                    if((record[j].cheese == i) && (record[j].people == sickPerson)){ // 아픈사람이 먹었나 확인
+                    if((record[j].cheese == (i+1)) && (record[j].people == sickPerson)){ // 아픈사람이 먹었나 확인
                         if(record[j].time < sickTime) count++;
                         else break;
                     }
                 }
-
+            }
+            int[] check = new int[n];
                 if(count == s){
                     count = 0;
                     for(int j=0; j<d; j++) {
-                        if(record[j].cheese == i) count++;
+                        if(record[j].cheese == (i+1)){
+                            check[record[j].people-1]++;
+                        } 
+                    }
+                    for(int j=0; j<n; j++){
+                        if(check[j]>0) count++;
                     }
                     ans = Math.max(ans, count);
                 }
-            }
         }
         System.out.println(ans);
         sc.close();
