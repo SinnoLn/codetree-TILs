@@ -9,19 +9,23 @@ public class Main {
         int ans = 0;
         for(int i=x; i<y; i++){
             String s = Integer.toString(i);
-            if(CheckInterest(s)) ans++;
+            if(CheckInterest(s)){
+                ans++;
+            } 
         }
         System.out.println(ans);
         sc.close();
     }
 
     public static boolean CheckInterest(String num){
-        char c = num.charAt(0);
+        int[] number = new int[10];
         int count = 0;
-        for(int i=1; i<num.length(); i++){
-            if(c == num.charAt(i)) count++;
+        for(int i=0; i<num.length(); i++){
+            number[num.charAt(i)-'0']++;
         }
-        if((count == 0) || (count == num.length()-1)) return true;
+        Arrays.sort(number);
+
+        if(number[9] == (num.length()-1)) return true;
         return false;
     }
 }
