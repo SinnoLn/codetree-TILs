@@ -12,11 +12,10 @@ public class Main {
         int wifi = 0;
         int position = 0;
         while(true){
+            if(position > n-2) break;
             if(arr[position] == 1){
-                position+=m;
+                position+=2*m;
                 wifi++;
-                position+=m;
-                if(position+m>n) break;
             }
             else position++;
         }
