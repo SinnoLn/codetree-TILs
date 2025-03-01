@@ -17,12 +17,12 @@ public class Main {
             return;
         } 
         while(true){
-            if(position > n-2) break;
             if(arr[position] == 1){
                 position+=2*m;
                 wifi++;
             }
             else position++;
+            if(position > n-2) break;
         }
         System.out.println(wifi);
         sc.close();
