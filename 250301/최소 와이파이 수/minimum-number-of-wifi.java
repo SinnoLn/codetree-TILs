@@ -11,6 +11,11 @@ public class Main {
 
         int wifi = 0;
         int position = 0;
+        if (m == 0){
+            for(int i=0; i<n; i++) if(arr[i]==1) wifi++;
+            System.out.println(wifi);
+            return;
+        } 
         while(true){
             if(position > n-2) break;
             if(arr[position] == 1){
