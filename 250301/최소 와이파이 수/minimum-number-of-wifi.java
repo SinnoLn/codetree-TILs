@@ -25,6 +25,8 @@ public class Main {
             }
             else position++;
         }
+        if(wifi == 0) wifi = 1;
+        
         System.out.println(wifi);
         sc.close();
     }
