@@ -16,13 +16,14 @@ public class Main {
             System.out.println(wifi);
             return;
         } 
+
         while(true){
             if(arr[position] == 1){
                 position+=2*m;
+                if(position > n-1) break;
                 wifi++;
             }
             else position++;
-            if(position > n-2) break;
         }
         System.out.println(wifi);
         sc.close();
