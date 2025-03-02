@@ -36,7 +36,9 @@ public class Main {
             else if(oddSum == evenSum) ans = (oddSum+evenSum);
             else{
                 if((evenSum-1) == oddSum) ans = evenSum+oddSum;
-                else ans = 1;
+                else {
+                    ans+=oddSum*2+1;
+                }
             }
         }
 
