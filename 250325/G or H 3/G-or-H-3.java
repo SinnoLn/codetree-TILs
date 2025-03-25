@@ -23,8 +23,8 @@ public class Main{
             else record[p] = 2;
         }
 
-        int ans = -1;
-        for(int i = minP; i<maxP+1; i++){
+        int ans = 0;
+        for(int i = minP; i<maxP-k+2; i++){
             int tmp = 0;
             for(int j = i; j < i+k+1; j++){
                 tmp+=record[j];
