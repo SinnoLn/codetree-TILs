@@ -24,10 +24,11 @@ public class Main{
         }
 
         int ans = 0;
-        for(int i = minP; i<maxP-k+2; i++){
+        for(int i = minP; i<maxP+1; i++){
             int tmp = 0;
-            for(int j = i; j < i+k+1; j++){
-                tmp+=record[j];
+            for(int j = 0; j < k+1; j++){
+                if(i+j > 10000) break;
+                tmp+=record[j+i];
             }
             ans = Math.max(ans, tmp);
         }
