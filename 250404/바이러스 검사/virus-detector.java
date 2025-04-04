@@ -12,7 +12,7 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         String[] people = br.readLine().split(" ");
         String[] check = br.readLine().split(" ");
-        int ans = 0;
+        long ans = 0;
 
         for(int i=0; i<n; i++){
             int p = Integer.parseInt(people[i]);
