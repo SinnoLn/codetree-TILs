@@ -49,14 +49,39 @@ import java.io.*;
 //술래 이동
 public class Main {
     public static int n,m,h,k;
+    public static int[][] area;
+    public static int[] tagger;
+    public static int[][] runner;
+    // 상, 우, 하, 좌 (↑ → ↓ ←)
+    public static int[] dy = {-1, 0, 1, 0};
+    public static int[] dx = {0, 1, 0, -1};
     public static void main(String[] args) throws IOExecption{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         n = Integer.parseInt(st.nextToken());
-        n = Integer.parseInt(st.nextToken());
-        n = Integer.parseInt(st.nextToken());
-        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
+        h = Integer.parseInt(st.nextToken());
+        k = Integer.parseInt(st.nextToken());
+
+        area = new int[n][n];
+        runner = new int[m][4];
+        tagger = new int[2];
+
+        for(int i=0; i<m; i++){
+            st = new StringTokenizer(br.readLine());
+            runner[i][0] = Integer.parseInt(st.nextToken()); //행
+            runner[i][1] = Integer.parseInt(st.nextToken()); //열
+            runner[i][2] = Integer.parseInt(st.nextToken()); //유형
+
+            if(runner[i][2] == 1) runner[i][3] = 1;
+            else runner[1][3] = 2;
+        }
+
+        for(int i=0; i<h; i++){
+            st = new StringTokenizer(br.readLine());
+            int y = Integer.parse(st.nextToken());
+        }
 
     }
 }
