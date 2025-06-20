@@ -9,9 +9,17 @@ public class Main {
         int n = sc.nextInt();
 
         StringBuilder sb = new StringBuilder();
-        for(int i=0; i<n; i++){
-            sb.append(s.charAt(s.length()-i-1));
+        if(n>s.length()){
+            for(int i=0; i<s.length(); i++){
+                sb.append(s.charAt(s.length()-i-1));
+            }
         }
+        else{
+            for(int i=0; i<n; i++){
+                sb.append(s.charAt(s.length()-i-1));
+            }
+        }
+        
         System.out.println(sb.toString());
     }
 }
